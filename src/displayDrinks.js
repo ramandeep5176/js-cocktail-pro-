@@ -1,5 +1,6 @@
 //
 import get from "./getElement.js";
+import { hideLoading } from "./toggleLoading.js";
 //
 9;
 const displayDrinks = ({ drinks }) => {
@@ -7,6 +8,7 @@ const displayDrinks = ({ drinks }) => {
   const title = get(".title");
   if (!drinks) {
     //   hide loading
+    hideLoading();
     title.textContent = "Sorry, no drinks matched your search";
     section.innerHTML = null;
     return;
@@ -21,6 +23,7 @@ const displayDrinks = ({ drinks }) => {
             <h3>${name}</h3> </article></a>`;
     })
     .join(" ");
+  hideLoading();
   //hideloading
   title.textContent = "";
   section.innerHTML = newDrinks;
